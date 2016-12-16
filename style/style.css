@@ -69,12 +69,3 @@ select {
   display: block;
   padding: 10px 30px;
 }
-/*
-h2:after {
-	display: block;
-	height: 2px;
-	background-color: #cf6d17;
-	content: " ";
-	width: 100px;
-	margin: 30px auto;
-}*/
