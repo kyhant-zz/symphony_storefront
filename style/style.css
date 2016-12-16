@@ -51,6 +51,15 @@ html {
   font-size: 80%;
 }
 
+.item div:after {
+  display: block;
+  height: 2px;
+  background-color: #003366;
+  content: " ";
+  width: 200px;
+  margin: 15px auto;
+}
+
 .item img {
   height: 200px;
   width: auto;
@@ -60,3 +69,12 @@ select {
   display: block;
   padding: 10px 30px;
 }
+/*
+h2:after {
+	display: block;
+	height: 2px;
+	background-color: #cf6d17;
+	content: " ";
+	width: 100px;
+	margin: 30px auto;
+}*/
