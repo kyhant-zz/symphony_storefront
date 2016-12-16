@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getProducts } from '../models/products.js';
+import Product from './product';
 
 export default class App extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ export default class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getData()
   }
 
@@ -19,12 +20,25 @@ export default class App extends Component {
     getProducts()
     .then(function(products){
       console.log('response',products)
-      self.setState({products})
+      self.setState({
+        pageTitle: products.pageTitle,
+        products: products.products,
+        extraInfo: products.extraInfo
+      })
     })
   }
   render() {
     return (
-      <div>React simple starter</div>
+      <div>
+        <h1>{this.state.pageTitle}</h1>
+        <p>{this.state.extraInfo}</p>
+        { this.state.products.map(item => {
+          return <Product
+          image={item.mainImage.ref}
+          id={item.id}
+          name={item.name} />
+        })}
+      </div>
     );
   }
 }
