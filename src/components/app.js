@@ -19,7 +19,6 @@ export default class App extends Component {
     let self = this;
     getProducts()
     .then(function(products){
-      console.log('response',products)
       self.setState({
         pageTitle: products.pageTitle,
         products: products.products,
@@ -29,14 +28,15 @@ export default class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="main-content">
         <h1>{this.state.pageTitle}</h1>
         <p>{this.state.extraInfo}</p>
         { this.state.products.map(item => {
           return <Product
           image={item.mainImage.ref}
           id={item.id}
-          name={item.name} />
+          name={item.name}
+          price={item.maxPrice} />
         })}
       </div>
     );

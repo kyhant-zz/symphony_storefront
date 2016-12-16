@@ -9,7 +9,8 @@ export default class Product extends Component {
     return (
       <div className="item" key={this.props.id}>
         <img src={"http:"+this.props.image}></img>
-        <h2>{this.props.name}</h2>
+        <div>{this.props.name}</div>
+        <span>{"$"+this.props.price}</span>
       </div>
     )
   }
