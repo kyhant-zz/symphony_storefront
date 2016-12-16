@@ -6,11 +6,15 @@ export default class Product extends Component {
   }
 
   render(){
+    let title = this.props.name;
+    let amt   = this.props.price.toString();
+    let price = `$${amt.substring(0, amt.length-2)}.${amt.substring(amt.length-2, amt.length)}`;
+    let name  = title.length > 26 ? title.slice(0,26) + '...' : title;
     return (
-      <div className="item" key={this.props.id}>
+      <div className="item" key={this.props.key}>
         <img src={"http:"+this.props.image}></img>
-        <div>{this.props.name}</div>
-        <span>{"$"+this.props.price}</span>
+        <div>{name}</div>
+        <span>{price}</span>
       </div>
     )
   }
